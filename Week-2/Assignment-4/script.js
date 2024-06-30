@@ -6,9 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var showMoreButton = document.getElementById('show-more');
     showMoreButton.addEventListener('click', function () {
-        var hiddenBoxes = document.querySelectorAll('.content-box.hidden');
-        hiddenBoxes.forEach(function (box) {
-            box.classList.remove('hidden');
-        });
+        var hiddenBoxes = document.querySelector('.content-boxes.hidden');
+        hiddenBoxes.classList.remove('hidden');
     });
 });
