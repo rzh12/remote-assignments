@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Week3_assignment3</title>
+</head>
+<body>
+    <h1>As-salamu alaykum</h1>
+    <label for="numberInput">Sum of an arithmetic sequence starting from 1: </label><input type="text" id="numberInput" placeholder="Enter a number">
+    <button onclick="calculateSum()">Get Sum</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateSum() {
+            const number = document.getElementById('numberInput').value;
+            const xhr = new XMLHttpRequest();
+            
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('result').textContent = `Result: ${xhr.responseText}`;
+                }
+            };
+            
+            xhr.open('GET', `http://localhost:3000/data?number=${number}`);
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
